@@ -8,19 +8,12 @@ import { CursosService } from './cursos.service';
 })
 export class CursosComponent implements OnInit {
 
-  nomePortal: string ="";
+  nomePortal: string = "";
   cursos: string[];
 
-  constructor() { 
-    this.nomePortal = "Pajé Cursos";
+  constructor(cursosService: CursosService) {
 
-    var servico = new CursosService();
-
-    this.cursos = servico.getCursos();
-    for(let i=0;i< this.cursos.length;i++){
-     let curso = this.cursos[i];
-    }
-   
+    this.cursos = cursosService.getCursos();
   }
 
   ngOnInit(): void {
